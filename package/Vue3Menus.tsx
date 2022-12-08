@@ -56,6 +56,7 @@ const vue3MenusComponent = defineComponent({
   inheritAttrs: false,
   props,
   setup(props, {slots, attrs}) {
+    debugger;
     const windowWidth = globalThis.document.documentElement.clientWidth
     const windowHeight = globalThis.document.documentElement.clientHeight
     const {proxy} = getCurrentInstance()
@@ -199,6 +200,7 @@ const vue3MenusComponent = defineComponent({
         self.index = null;
       }
       if (!hasChildren(menu)) {
+
         return;
       }
       const enter = menu.enter && typeof menu.enter === 'function' ? menu.enter : null
@@ -252,9 +254,11 @@ const vue3MenusComponent = defineComponent({
       if (hasChildren(menu)) {
         event.stopPropagation();
       }
-      if (!hasChildren(menu) && getBoolVal(menu,'clickToClose') !== false) {
-        show.value = false;
-        activeIndex.value = -1;
+      if (getBoolVal(menu, 'clickToClose', true)) {
+        if (!hasChildren(menu)) {
+          show.value = false;
+          activeIndex.value = -1;
+        }
       }
     }
 
@@ -263,15 +267,18 @@ const vue3MenusComponent = defineComponent({
       if (this.self && this.self.instance) {
         this.self.instance.close();
       }
+      // if (this.close) {
+      //   this.close.bind(self.instance);
+      // }
       nextTick(() => {
         render(null, this.container)
       })
     }
 
-    function getBoolVal(menuItem: menusItemType, prop: 'disabled' | 'divided' | 'hidden'|'clickToClose'): boolean {
+    function getBoolVal(menuItem: menusItemType, prop: 'disabled' | 'divided' | 'hidden' | 'clickToClose', defaultVal: boolean = false): boolean {
       const val = menuItem[prop]
       if (!val) {
-        return false
+        return defaultVal
       }
       if (typeof val === 'function') {
         return val(menuItem.key)

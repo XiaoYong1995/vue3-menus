@@ -11,17 +11,19 @@ module.exports = {
   input: path.resolve(__dirname, './package/index.js'),
   output: [
     {
-      file: path.resolve(__dirname, './dist/vue3-menus.js'),
+      exports: 'named',
+      file: path.resolve(__dirname, './dist/vue-vantis-menus.js'),
       format: 'umd',
-      name: 'Vue3Menus',
+      name: 'VueVantisMenus',
       globals: {
         vue: 'Vue'
       }
     },
     {
-      file: path.resolve(__dirname, './dist/vue3-menus.min.js'),
+      exports: 'named',
+      file: path.resolve(__dirname, './dist/vue-vantis-menus.min.js'),
       format: 'umd',
-      name: 'Vue3Menus',
+      name: 'VueVantisMenus',
       globals: {
         vue: 'Vue'
       },
@@ -30,7 +32,8 @@ module.exports = {
       ]
     },
     {
-      file: path.resolve(__dirname, './dist/vue3-menus.es.js'),
+      exports: 'named',
+      file: path.resolve(__dirname, './dist/vue-vantis-menus.es.js'),
       format: 'es',
       globals: {
         vue: 'Vue'

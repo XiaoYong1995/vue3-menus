@@ -1,30 +1,43 @@
 <template>
-<!--  <el-dialog :modelValue="true">-->
-    <div class="menus-example" @contextmenu="contextmenu"></div>
-<!--  </el-dialog>-->
-  <!--    <vue3-menus class="aaa"  direction="right" :event="event" :menus="menus"></vue3-menus>-->
+  <div class="menus-example" @contextmenu="click"></div>
+  <vue3-menus class="aaa" v-model:open="open" :event="event" :menus="menus"></vue3-menus>
 </template>
 
 <script lang="ts">
-import {defineComponent, ref, nextTick} from 'vue';
-import {menusEvent} from '../package/index.js'
-import {menusItemType, menusType} from "../index";
+import { defineComponent, ref, nextTick } from 'vue';
 
 export default defineComponent({
   name: 'App',
   setup() {
     let backDisabled = false
-    const menus = ref<Array<menusItemType>>([
+    const menus = ref([
       {
         label: "返回(B)",
         tip: 'Alt+向左箭头',
         click: () => {
-          alert('返回')
-//          window.history.back();
         },
-        children:[{
-          label:"asdasd"
-        }]
+        children: [
+          {
+            label: 'iPhone',
+            children: [
+              {
+                label: 'iPhone1111',
+              },
+              {
+                label: 'iPad11111'
+              },
+              {
+                label: 'Windows 11111111'
+              }
+            ]
+          },
+          {
+            label: 'iPad'
+          },
+          {
+            label: 'Windows 11'
+          }
+        ]
       },
       {
         key: 'test1',
@@ -54,9 +67,7 @@ export default defineComponent({
       {
         label: "点击不关闭菜单",
         tip: '不关闭菜单',
-        clickToClose:false,
         click: () => {
-          debugger;
           return false;
         }
       },
@@ -96,7 +107,6 @@ export default defineComponent({
           {
             label: "点击不关闭菜单",
             tip: '不关闭菜单',
-            clickToClose:false,
             click: () => {
               return false;
             }
@@ -151,23 +161,23 @@ export default defineComponent({
             label: "使用网页翻译(F)",
             divided: true,
             children: [
-              {label: "翻译成繁体中文"},
-              {label: "翻译成繁体中文"},
+              { label: "翻译成繁体中文" },
+              { label: "翻译成繁体中文" },
               {
                 label: "百度翻译", children: [
-                  {label: "翻译成繁体中文"},
-                  {label: "翻译成繁体中文"},]
+                  { label: "翻译成繁体中文" },
+                  { label: "翻译成繁体中文" },]
               },
               {
                 label: "搜狗翻译", children: [
-                  {label: "翻译成繁体中文"},
-                  {label: "翻译成繁体中文"},
+                  { label: "翻译成繁体中文" },
+                  { label: "翻译成繁体中文" },
                 ]
               },
               {
                 label: "有道翻译", children: [
-                  {label: "翻译成繁体中文"},
-                  {label: "翻译成繁体中文"},
+                  { label: "翻译成繁体中文" },
+                  { label: "翻译成繁体中文" },
                 ]
               },
             ]
@@ -175,8 +185,8 @@ export default defineComponent({
           {
             label: "截取网页(R)"
           },
-          {label: "查看网页源代码(U)", tip: 'Ctrl+U'},
-          {label: "检查(N)", tip: 'Ctrl+Shift+I'}
+          { label: "查看网页源代码(U)", tip: 'Ctrl+U' },
+          { label: "检查(N)", tip: 'Ctrl+Shift+I' }
         ]
       },
       {
@@ -203,23 +213,23 @@ export default defineComponent({
         label: "使用网页翻译(F)",
         divided: true,
         children: [
-          {label: "翻译成繁体中文"},
-          {label: "翻译成繁体中文"},
+          { label: "翻译成繁体中文" },
+          { label: "翻译成繁体中文" },
           {
             label: "百度翻译", children: [
-              {label: "翻译成繁体中文"},
-              {label: "翻译成繁体中文"},]
+              { label: "翻译成繁体中文" },
+              { label: "翻译成繁体中文" },]
           },
           {
             label: "搜狗翻译", children: [
-              {label: "翻译成繁体中文"},
-              {label: "翻译成繁体中文"},
+              { label: "翻译成繁体中文" },
+              { label: "翻译成繁体中文" },
             ]
           },
           {
             label: "有道翻译", children: [
-              {label: "翻译成繁体中文"},
-              {label: "翻译成繁体中文"},
+              { label: "翻译成繁体中文" },
+              { label: "翻译成繁体中文" },
             ]
           },
         ]
@@ -237,7 +247,6 @@ export default defineComponent({
           {
             label: "点击不关闭菜单",
             tip: '不关闭菜单',
-            clickToClose:false,
             click: () => {
               return false;
             }
@@ -274,6 +283,17 @@ export default defineComponent({
             children: [
               {
                 label: 'iPhone',
+                children: [
+                  {
+                    label: 'iPhone',
+                  },
+                  {
+                    label: 'iPad'
+                  },
+                  {
+                    label: 'Windows 11'
+                  }
+                ]
               },
               {
                 label: 'iPad'
@@ -292,23 +312,23 @@ export default defineComponent({
             label: "使用网页翻译(F)",
             divided: true,
             children: [
-              {label: "翻译成繁体中文"},
-              {label: "翻译成繁体中文"},
+              { label: "翻译成繁体中文" },
+              { label: "翻译成繁体中文" },
               {
                 label: "百度翻译", children: [
-                  {label: "翻译成繁体中文"},
-                  {label: "翻译成繁体中文"},]
+                  { label: "翻译成繁体中文" },
+                  { label: "翻译成繁体中文" },]
               },
               {
                 label: "搜狗翻译", children: [
-                  {label: "翻译成繁体中文"},
-                  {label: "翻译成繁体中文"},
+                  { label: "翻译成繁体中文" },
+                  { label: "翻译成繁体中文" },
                 ]
               },
               {
                 label: "有道翻译", children: [
-                  {label: "翻译成繁体中文"},
-                  {label: "翻译成繁体中文"},
+                  { label: "翻译成繁体中文" },
+                  { label: "翻译成繁体中文" },
                 ]
               },
             ]
@@ -316,26 +336,23 @@ export default defineComponent({
           {
             label: "截取网页(R)"
           },
-          {label: "查看网页源代码(U)", tip: 'Ctrl+U'},
-          {label: "检查(N)", tip: 'Ctrl+Shift+I'}
+          { label: "查看网页源代码(U)", tip: 'Ctrl+U' },
+          { label: "检查(N)", tip: 'Ctrl+Shift+I' }
         ]
       },
-      {label: "查看网页源代码(U)", tip: 'Ctrl+U'},
-      {label: "检查(N)", tip: 'Ctrl+Shift+I'}
+      { label: "查看网页源代码(U)", tip: 'Ctrl+U' },
+      { label: "检查(N)", tip: 'Ctrl+Shift+I' }
     ]);
     const open = ref(false);
     const event = ref({});
-
-    function contextmenu(e: any) {
-      // open.value = false;
-      // nextTick(() => {
-      //     event.value = e;
-      //     open.value = true;
-      // })
-      menusEvent(e, {zIndex:9999,menus:menus.value}, null)
+    function click(e: any) {
+      open.value = false;
+      nextTick(() => {
+        event.value = e;
+        open.value = true;
+      })
       e.preventDefault();
     }
-
     setTimeout(() => {
       menus.value[3].label = '点击关闭菜单'
       menus.value[9].children[0].disabled = true
@@ -344,7 +361,7 @@ export default defineComponent({
     }, 10000);
 
     return {
-      contextmenu,
+      click,
       menus,
       open,
       event

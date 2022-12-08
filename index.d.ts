@@ -31,7 +31,7 @@ type componentMenusType = menusType & {
   args?: unknown
 }
 
-declare module 'vue3-menus' {
+declare module 'vue-vantis-menus' {
   export const Vue3Menus: import('vue').DefineComponent<componentMenusType, componentMenusType, componentMenusType, componentMenusType, componentMenusType,
     componentMenusType, componentMenusType, componentMenusType, componentMenusType, componentMenusType, componentMenusType, componentMenusType>;
 

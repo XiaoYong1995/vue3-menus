@@ -1,43 +1,40 @@
 {
-  "name": "vue3-menus",
-  "version": "1.1.2",
-  "author": "xufangyi",
+  "name": "vue-vantis-menus",
+  "version": "1.0.7",
+  "author": "XanderXiao",
   "private": false,
   "description": "Vue3.0 左右键菜单",
   "keywords": [
     "vue",
     "vue3",
-    "vue3-menus",
+    "vue-vantis-menus",
     "contextmenu",
     "vue-contextmenu",
     "vue3-contextmenu"
   ],
-  "main": "dist/vue3-menus.js",
-  "module": "dist/vue3-menus.es.js",
+  "main": "dist/vue-vantis-menus.js",
+  "module": "dist/vue-vantis-menus.es.js",
   "types": "./index.d.ts",
   "files": [
     "package.json",
     "README.md",
     ".gitignore",
     "LICENSE",
-    "dist/vue3-menus.es.js",
-    "dist/vue3-menus.es.min.js",
-    "dist/vue3-menus.js",
-    "dist/vue3-menus.min.js",
+    "dist/vue-vantis-menus.es.js",
+    "dist/vue-vantis-menus.es.min.js",
+    "dist/vue-vantis-menus.js",
+    "dist/vue-vantis-menus.min.js",
     "src",
     "index.d.ts"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xfy520/vue3-menus.git"
+    "url": "https://github.com/XiaoYong1995/vue3-menus.git"
   },
   "scripts": {
     "build": "rollup -c",
     "dev": "vite"
-  },
-  "dependencies": {
-    "element-plus": "^2.2.12"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",

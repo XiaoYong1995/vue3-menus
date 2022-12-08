@@ -24,7 +24,6 @@ function mouseEvent(menus, args, event) {
   vNode.component.props.open = true
   vNode.component.proxy.closeAll = () => {
     nextTick(() => {
-      debugger;
       render(null, container)
     })
   }
@@ -64,5 +63,5 @@ export default function (app) {
 }
 
 export {
-  directive, Vue3Menus, menusEvent
+  directive, Vue3Menus,menusEvent
 }
