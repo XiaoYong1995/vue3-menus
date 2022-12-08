@@ -4,7 +4,6 @@ import commonjs from 'rollup-plugin-commonjs'
 import pluginVue from 'rollup-plugin-vue'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
-import { uglify } from 'rollup-plugin-uglify'
 import clear from 'rollup-plugin-clear'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
@@ -27,7 +26,6 @@ module.exports = {
         vue: 'Vue'
       },
       plugins: [
-        uglify(),
         terser()
       ]
     },
