@@ -1,55 +1,38 @@
-# vue3-menus
-
-Vue3.0 自定义右键菜单，支持 Vite2.0，[官网](https://doc.wssio.com/opensource/vue3-menus/)
-
-Vue3.0 原生实现完全自定义右键菜单组件, 零依赖，可根据可视区域自动调节显示位置，可支持插槽完全重写每一项菜单
-
-![演示](./example/vue3-menus.png)
-
-## 在线演示
-
-- [完整菜单功能演示](https://codepen.io/xfy520/pen/yLXNqzy)
-- [复制粘贴演示](https://codepen.io/xfy520/pen/xxrGJdg)
+## 注意事项
+先设置使用192.168.1.36:4873作为私有npm仓库
 
 ## 快速安装
-
 ### npm 安装
 
 ```shell
-npm install vue3-menus
+npm install vue-vantis-menus
 ```
 
 或
 
 ```shell
-yarn add vue3-menus
-```
-
-### CDN
-
-```html
-<script src="https://unpkg.com/vue3-menus/dist/vue3-menus.umd.min.js">
+yarn add vue-vantis-menus
 ```
 
 ## 使用（Vite 情况下同样使用）
 
-CDN引入则不需要 `app.use(Vue3Menus)`
+CDN引入则不需要 `app.use(VueVantisMenus)`
 > 样例中使用的是`@ant-design/icons-vue`图标与`@element-plus/icons`图标、图标可以使用`html`代码传入、也可以通过插槽`自定义图标`、也可以`完全重写每一项菜单`
 
 ```js
 // 全局注册组件、指令、方法
 import { createApp } from 'vue';
-import Menus from 'vue3-menus';
+import Menus from 'vue-vantis-menus';
 import App from './App.vue';
 const app = createApp(App);
 app.use(Menus);
 app.mount('#app');
 // 单个注册某个，以下三种方式均可在单个文件内使用
 import { createApp } from 'vue';
-import { directive, menusEvent, Vue3Menus } from 'vue3-menus';
+import { directive, menusEvent, VueVantisMenus } from 'vue-vantis-menus';
 import App from './App.vue';
 const app = createApp(App);
-app.component('vue3-menus', Vue3Menus); // 只注册组件
+app.component('vue-vantis-menus', VueVantisMenus); // 只注册组件
 app.directive('menus', directive); // 只注册指令
 app.config.globalProperties.$menusEvent = menusEvent; // 只绑定方法
 app.mount('#app');
@@ -61,10 +44,10 @@ app.mount('#app');
     <div class="div" v-menus:left="menus">指令方式打开菜单</div>
     <div class="div" @click.stop @contextmenu="($event) => $menusEvent($event, menus)">事件方式打开菜单</div>
     <div class="div" @click.stop @contextmenu="rightClick">组件方式打开菜单</div>
-    <vue3-menus :open="isOpen" :event="eventVal" :menus="menus.menus">
+    <vue-vantis-menus :open="isOpen" :event="eventVal" :menus="menus.menus">
       <template #icon="{menu, activeIndex, index}">{{activeIndex}}</template>
       <template #label="{ menu, activeIndex, index }">插槽：{{ menu.label }}</template>
-    </vue3-menus>
+    </vue-vantis-menus>
   </div>
 </template>
 <script>
@@ -200,7 +183,7 @@ export default defineComponent({
 </template>
 <script>
 import { defineComponent, shallowRef } from "vue";
-import { directive } from 'vue3-menus';
+import { directive } from 'vue-vantis-menus';
 
 export default defineComponent({
   name: "App",
@@ -240,7 +223,7 @@ export default defineComponent({
 </template>
 <script>
 import { defineComponent, shallowRef } from "vue";
-import { menusEvent } from 'vue3-menus';
+import { menusEvent } from 'vue-vantis-menus';
 
 export default defineComponent({
   name: "App",
@@ -278,19 +261,19 @@ export default defineComponent({
 ```html
 <template>
   <div class="div" @click.stop @contextmenu="rightClick">组件方式打开菜单</div>
-  <vue3-menus v-model:open="isOpen" :event="eventVal" :menus="menus" hasIcon>
+  <vue-vantis-menus v-model:open="isOpen" :event="eventVal" :menus="menus" hasIcon>
     <template #icon="{menu, activeIndex, index}">{{activeIndex}}</template>
     <template #label="{ menu, activeIndex, index}">插槽：{{ menu.label }}</template>
-  </vue3-menus>
+  </vue-vantis-menus>
 </template>
 <script>
 import { defineComponent, nextTick, ref, shallowRef } from "vue";
-import { Vue3Menus } from 'vue3-menus';
+import { VueVantisMenus } from 'vue-vantis-menus';
 
 export default defineComponent({
   name: "App",
   components: {
-    Vue3Menus
+    VueVantisMenus
   },
   setup() {
     const isOpen = ref(false);

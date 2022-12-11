@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import pluginVue from 'rollup-plugin-vue'
 import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
+import {terser} from 'rollup-plugin-terser'
 import clear from 'rollup-plugin-clear'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
@@ -11,7 +11,6 @@ module.exports = {
   input: path.resolve(__dirname, './package/index.js'),
   output: [
     {
-      exports: 'named',
       file: path.resolve(__dirname, './dist/vue-vantis-menus.js'),
       format: 'umd',
       name: 'VueVantisMenus',
@@ -20,7 +19,6 @@ module.exports = {
       }
     },
     {
-      exports: 'named',
       file: path.resolve(__dirname, './dist/vue-vantis-menus.min.js'),
       format: 'umd',
       name: 'VueVantisMenus',
@@ -32,7 +30,6 @@ module.exports = {
       ]
     },
     {
-      exports: 'named',
       file: path.resolve(__dirname, './dist/vue-vantis-menus.es.js'),
       format: 'es',
       globals: {

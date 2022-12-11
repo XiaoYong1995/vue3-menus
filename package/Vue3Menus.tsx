@@ -56,7 +56,6 @@ const vue3MenusComponent = defineComponent({
   inheritAttrs: false,
   props,
   setup(props, {slots, attrs}) {
-    debugger;
     const windowWidth = globalThis.document.documentElement.clientWidth
     const windowHeight = globalThis.document.documentElement.clientHeight
     const {proxy} = getCurrentInstance()
